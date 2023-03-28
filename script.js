@@ -1,3 +1,138 @@
-let test = function(
-    
-)
+let color = "black";
+let click = true;
+
+function populateBoard(size){
+let board = document.querySelector('.board');
+let squares = board.querySelectorAll('div');
+squares.forEach(div=> div.remove());
+board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+let amount = size * size
+for(let i = 0;i <amount;i++){
+    let square = document.createElement("div");
+    square.addEventListener("mouseover", colorSquare);
+    square.style.backgroundColor = "white";
+    board.insertAdjacentElement("beforeend", square);
+  }
+}
+
+populateBoard(16);
+
+function changeSize(input){
+  if(input >=2 && input <=100){
+    document.querySelector(".error").style.display = "none";
+    populateBoard(input);
+  } else {
+    document.querySelector(".error").style.display = "flex";
+  }
+}
+
+function colorSquare() {
+ if(click){
+    if((color === 'random')){
+        this.style.backgroundColor = 'hsla(' + (Math.random() * 360) + ', 100%, 50%, 1)';
+    }else {
+        this.style.backgroundColor = color;
+    }
+ }
+}
+
+
+function changeColor(choice){
+    color = choice;
+}
+
+function resetBoard(){
+    let board = document.querySelector(".board");
+    let squares = board.querySelectorAll("div");
+    squares.forEach((div) => div.style.backgroundColor = 'white');
+
+}
+
+document.querySelector('body').addEventListener('click', (e) =>{
+    if(e.target.tagName != "BUTTON"){
+        click = !click;
+        if(click){
+            document.querySelector('.mode').textContent = "Mode: Coloring"
+        }else {
+            document.querySelector('.mode').textContent = "Mode: Not Coloring"
+        }
+    }
+   
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function createGrid(x) {
+//     for (var rows = 0; rows < x; rows++) {
+//         for (var columns = 0; columns , x; columns++) {
+//             $("#container").append("<div class='grid'></div>");
+//         };
+//     };
+//     $(".grid").width(960/x);
+//     $(".grid").height(960/x);
+// }; 
+
+// function clearGrid(){
+//     $(".grid").remove();
+// };
+
+// function refreshGrid(){
+//     var z = prompt("How many boxes per side?");
+//     clearGrid();
+//     createGrid(z);
+// };
+
+// $(document).ready(function(){
+//     createGrid(16);
+
+//     $(".grid").mouseover(function() {
+//         $(this).css("background-color", "black");
+//     });
+//     $(".newGrid").click(function(){
+//         refreshGrid();
+
+//         $(".grid").mouseover(function(){
+//         $(this).css("back-ground", "black");
+//         });
+//     });
+// });

@@ -6,9 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>    
+    <link rel="stylesheet" href="reset.css">
+    <script src="script.js" defer></script>    
 </head>
 <body>
-    <p>Hello World!</p>
-</body>
+
+
+
+
+
+
+    
+    <div class="flex-container">
+        <div class="title"><h1>Etch-A-Sketch</h1></div>
+        <div class="content">
+            <div class="board"></div>
+            <div class="mode"> Mode: Coloring</div>
+            
+            <div class="bottom">
+            <button class="knobs"></button>
+
+            <div class="buttons">
+                <button class="blackButton" onclick="changeColor('black')"> Black </button>
+                <button class="grayButton" onclick="changeColor('gray')"> Gray </button>
+                <button class="randomButton" onclick="changeColor('random')"> Random</button>
+                <button class="whiteButton" onclick="changeColor('white')"> Eraser </button>
+                <button class="resetButton" onclick="resetBoard('reset')"> Reset </button>
+                
+            </div>
+            
+            <button class="knobs"></button>
+        </div>
+            <div>
+                <input
+                 type="text" 
+                 placeholder="Size of Board" 
+                 value="16" 
+                 onchange="changeSize(this.value)"/>
+                <button class="sizeButton">Set Size</button>
+            </div>
+            <div class="error">
+                Input must be between 2 and 100.
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
 </html>
+
+
+
+ <!-- <div class="game">
+   
+    <div class="game-title">Etch-A-Sketch</div>
+    <div id="container"></div> 
+    <br><br>
+    <button class="newGrid"> New Grid </button> -->
+
+    <!-- <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div></div> -->
